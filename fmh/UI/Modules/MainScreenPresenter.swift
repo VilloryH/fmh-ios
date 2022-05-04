@@ -10,21 +10,21 @@ import UIKit
 class MainScreenPresenter {
     
     // MARK: - External vars
-    weak var viewController: MainScreenViewControllerDelegate!
+    weak var tableViewController: MainScreenTableViewControllerDelegate!
     var model: MainScreenModel!
    
     // MARK: - Private vars
     private var router: MainScreenRouterDelegate!
     
-    init(viewController: MainScreenViewControllerDelegate, model: MainScreenModel, router: MainScreenRouterDelegate?) {
+    init(tableViewController: MainScreenTableViewControllerDelegate, model: MainScreenModel, router: MainScreenRouterDelegate?) {
         self.model = model
-        self.viewController = viewController
+        self.tableViewController = tableViewController
         self.router = router
     }
    
 }
 
-// MARK: - Main_ScreenPresenterDelegate
+// MARK: - MainScreenPresenterDelegate
 extension MainScreenPresenter: MainScreenPresenterDelegate {
     
 }

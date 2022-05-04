@@ -7,21 +7,16 @@
 
 import UIKit
 
-class ModelBuilder: MainScreenBuilder {
-
-    static func createMain() -> UIViewController {
-        let model = MainScreenModel.init(news: News(), requests: Requests())
-        let view = MainScreenViewController()
-        let presenter = MainScreenPresenter(viewController: view, model: model, router: nil)
-        view.presenter = presenter
-        return view
-    }
+class MainScreenModelBuilder: MainScreenBuilder {
     
-    static func createNavController() -> UINavigationController {
-        let navController = UINavigationController(rootViewController: createMain())
-        navController.navigationBar.backgroundColor = .white
-        navController.view.backgroundColor = .white
-        return navController
+    static func createMain() -> UINavigationController {
+        let model = MainScreenModel.init(news: News(), requests: Requests())
+        let view = MainScreenTableViewController()
+        let presenter = MainScreenPresenter(tableViewController: view, model: model, router: nil)
+        view.presenter = presenter
+        let navViewController = UINavigationController(rootViewController: view)
+        navViewController.navigationBar.backgroundColor = UIColor(red: 0, green: 0.6859514117, blue: 0.68581146, alpha: 1) // временный навбар
+        return navViewController
     }
     
 }

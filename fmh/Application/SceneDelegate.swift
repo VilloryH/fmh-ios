@@ -15,9 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        self.window = UIWindow (windowScene: windowScene)
-        self.window?.rootViewController = ModelBuilder.createNavController()
-        self.window?.makeKeyAndVisible()
+        let window = UIWindow (windowScene: windowScene)
+        window.rootViewController = MainScreenModelBuilder.createMain()
+        window.makeKeyAndVisible()
+        self.window = window
         
         //TODO: - ПРОПИСАТЬ Coordinator (Router)
     

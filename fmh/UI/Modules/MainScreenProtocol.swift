@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - ViewController
-protocol MainScreenViewControllerDelegate: AnyObject {
+protocol MainScreenTableViewControllerDelegate: AnyObject {
     
 }
 
@@ -24,5 +24,5 @@ protocol MainScreenRouterDelegate {
 
 // MARK: - Builder
 protocol MainScreenBuilder {
-    static func createMain() -> UIViewController
+    static func createMain() -> UINavigationController
 }
