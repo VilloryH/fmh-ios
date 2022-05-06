@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - ViewController
-protocol MainScreenTableViewControllerDelegate: AnyObject {
+protocol MainScreenViewControllerDelegate: AnyObject {
     
 }
 

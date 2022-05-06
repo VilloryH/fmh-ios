@@ -31,7 +31,7 @@ class CellNews: UITableViewCell {
     
     let openNewsButtton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "Arrow"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "ArrowDown"), for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -49,7 +49,7 @@ class CellNews: UITableViewCell {
     }
     
     @objc func openNews() {
-        print("news")
+        print("show current new")
     }
     
     func setConstraints() {
