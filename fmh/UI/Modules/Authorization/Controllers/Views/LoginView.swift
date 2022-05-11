@@ -122,7 +122,7 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Войти", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .init(named: "AccentColor")
+        button.backgroundColor = UIColor(named: "AccentColor")
         button.layer.cornerRadius = 5.0
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -131,7 +131,7 @@ class LoginView: UIView {
     
     var activityIndicator : UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .init(named: "AccentColor")
+        activityIndicator.color = UIColor(named: "AccentColor")
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         return activityIndicator
