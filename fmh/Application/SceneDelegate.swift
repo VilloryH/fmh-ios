@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         window?.windowScene = scene
-        let vc = LoadingScreenViewController()
+        let vc = ModuleBuilder.createLoadingScreenModule()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
