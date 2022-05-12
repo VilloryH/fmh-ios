@@ -39,10 +39,6 @@ class CellRequests: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func openTaskAction() {
-        print("open task")
-    }
-    
     func configureCell(borderColor: CGColor, separateLine: UIColor) {
         let cellView: UIView = {
             let cell = UIView()
@@ -73,7 +69,6 @@ class CellRequests: UITableViewCell {
             themeStackView.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
             themeStackView.heightAnchor.constraint(equalToConstant: 30)
         ])
-        
         
         let patientStackView = UIStackView(arrangedSubviews: [patientLabel, patientName], axis: .horizontal, spacing: 10, distribution: .equalSpacing)
         cellView.addSubview(patientStackView)
@@ -112,5 +107,8 @@ class CellRequests: UITableViewCell {
         self.addSubview(cellView)
     }
     
+    @objc func openTaskAction() {
+           print("open task")
+       }
+    
 }
-
