@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct LoadingScreenModel {
+    
+    let backgroundImage: String
+    let textDescription: String
+}
+
 protocol LoadingScreenProtocol: class {
     func setGreeting(greeting: String)
 }
