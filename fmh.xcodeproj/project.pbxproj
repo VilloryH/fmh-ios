@@ -60,6 +60,7 @@
 		19C7A52F280DED24005000EB /* ProjectDiscription in Resources */ = {isa = PBXBuildFile; fileRef = 19C7A52E280DED24005000EB /* ProjectDiscription */; };
 		19C7A531280DED3B005000EB /* Guidelines in Resources */ = {isa = PBXBuildFile; fileRef = 19C7A530280DED3B005000EB /* Guidelines */; };
 		19EE65C32821BD060095C2EE /* AuthorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE65C22821BD060095C2EE /* AuthorizationError.swift */; };
+		9F6B33A7282D01830031935A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B33A6282D01830031935A /* Colors.swift */; };
 		9F828214282C399F00BE732A /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F828213282C399F00BE732A /* ModuleBuilder.swift */; };
 		9F828219282C39D100BE732A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F828218282C39D100BE732A /* LoadingViewController.swift */; };
 		9F82821D282C3A1600BE732A /* LoadingScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F82821C282C3A1600BE732A /* LoadingScreenModel.swift */; };
@@ -122,6 +123,7 @@
 		19C7A52E280DED24005000EB /* ProjectDiscription */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProjectDiscription; sourceTree = "<group>"; };
 		19C7A530280DED3B005000EB /* Guidelines */ = {isa = PBXFileReference; lastKnownFileType = text; path = Guidelines; sourceTree = "<group>"; };
 		19EE65C22821BD060095C2EE /* AuthorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationError.swift; sourceTree = "<group>"; };
+		9F6B33A6282D01830031935A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9F828213282C399F00BE732A /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		9F828218282C39D100BE732A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9F82821C282C3A1600BE732A /* LoadingScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenModel.swift; sourceTree = "<group>"; };
@@ -417,9 +419,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9F6B33A5282D01750031935A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9F6B33A6282D01830031935A /* Colors.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		9F828212282C392100BE732A /* LoadingScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9F6B33A5282D01750031935A /* Helper */,
 				9F828213282C399F00BE732A /* ModuleBuilder.swift */,
 				9F828217282C39B800BE732A /* View */,
 				9F82821B282C39EC00BE732A /* Model */,
@@ -559,6 +570,7 @@
 				19243E2B2829C06100A43CA8 /* MainProtocols.swift in Sources */,
 				1913255B28253B69003499BA /* KeyChain.swift in Sources */,
 				19243DF72829B12100A43CA8 /* Coordinator.swift in Sources */,
+				9F6B33A7282D01830031935A /* Colors.swift in Sources */,
 				19243E292829BEB400A43CA8 /* AuthorizationProtocols.swift in Sources */,
 				19243E1F2829BBEB00A43CA8 /* AuthorizationPresenter.swift in Sources */,
 				19243E122829B47400A43CA8 /* MainFactoryProtocol.swift in Sources */,

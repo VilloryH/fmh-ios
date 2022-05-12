@@ -25,26 +25,27 @@ class LoadingViewController: UIViewController {
         return activityIndicator
     }()
     
+    // UIView
     private var viewForLabel : UIView = {
         let viewForLabel = UIView()
-        
-        viewForLabel.backgroundColor = .cyan
         viewForLabel.translatesAutoresizingMaskIntoConstraints = false
+        viewForLabel.layer.cornerRadius = 10
         return viewForLabel
     }()
     
+    //TextLabel
     private let textLbl: UILabel = {
         let textLbl = UILabel()
         textLbl.translatesAutoresizingMaskIntoConstraints = false
         textLbl.numberOfLines = 0
         textLbl.textAlignment = .center
-        textLbl.backgroundColor = .lightGray
         return textLbl
     }()
         
     // MARK: - Properties
     
     var presenter: LoadingScreenPresenterProtocol!
+    private let customColors = Colors()
     
     // MARK: - Life cicle
     
@@ -74,8 +75,9 @@ extension LoadingViewController {
         
         // UIView
         self.backgroundImage.addSubview(viewForLabel)
+        viewForLabel.backgroundColor = customColors.colorForView1
         NSLayoutConstraint.activate([
-            viewForLabel.topAnchor.constraint(equalTo: backgroundImage.topAnchor, constant: 456),
+            viewForLabel.heightAnchor.constraint(equalToConstant: 100),
             viewForLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 100),
             viewForLabel.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -100),
             viewForLabel.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -137)
@@ -83,11 +85,11 @@ extension LoadingViewController {
 
         // TEXTLabel
         self.viewForLabel.addSubview(textLbl)
+        textLbl.textColor = customColors.colorForTextLbl1
         NSLayoutConstraint.activate([
-            textLbl.heightAnchor.constraint(equalTo: viewForLabel.heightAnchor, constant: 50),
             textLbl.leadingAnchor.constraint(equalTo: viewForLabel.leadingAnchor, constant: 20),
             textLbl.trailingAnchor.constraint(equalTo: viewForLabel.trailingAnchor, constant: -20),
-            textLbl.bottomAnchor.constraint(equalTo: viewForLabel.bottomAnchor, constant: -100)
+            textLbl.bottomAnchor.constraint(equalTo: viewForLabel.bottomAnchor, constant: -20)
         ])
         
   //      self.view.addSubview(activityIndicator)
@@ -100,3 +102,9 @@ extension LoadingViewController {
     }
     
 }
+
+// MARK: - Colors
+//extension UIColor {
+//   static let myBlue = UIColor(red:0.001, green:0.001 ,blue:0.002, alpha:1.00)
+//    //UIColor(red:0.219, green:0.255 ,blue:0.254, alpha:1.00)
+//}
