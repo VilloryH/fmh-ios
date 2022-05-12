@@ -13,8 +13,8 @@ class LoadingViewController: UIViewController {
     
     private let backgroundImage: UIImageView = {
        let backgroundImage = UIImageView()
-        backgroundImage.contentMode = .scaleAspectFill
-        backgroundImage.image = UIImage.init(named: "1.png")
+        backgroundImage.contentMode = .scaleAspectFit
+        backgroundImage.image = UIImage.init(named: "2.png")
         return backgroundImage
     }()
     
@@ -28,8 +28,7 @@ class LoadingViewController: UIViewController {
     private var viewForLabel : UIView = {
         let viewForLabel = UIView()
         
-        // some code
-        
+        viewForLabel.backgroundColor = .cyan
         viewForLabel.translatesAutoresizingMaskIntoConstraints = false
         return viewForLabel
     }()
@@ -37,6 +36,8 @@ class LoadingViewController: UIViewController {
     private let textLbl: UILabel = {
         let textLbl = UILabel()
         textLbl.translatesAutoresizingMaskIntoConstraints = false
+        textLbl.numberOfLines = 0
+        textLbl.textAlignment = .center
         textLbl.backgroundColor = .lightGray
         return textLbl
     }()
@@ -50,8 +51,8 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        setConstraints()
-        setGreeting(greeting: "Hello")
+        setupLayout()
+        setGreeting(greeting: "Ответственно и осознанно нести добро людям")
     }
 }
 
@@ -65,19 +66,29 @@ extension LoadingViewController: LoadingScreenProtocol {
 
 extension LoadingViewController {
     
-    func setConstraints() {
+    func setupLayout() {
         
+        // BackgroundImage
         self.view.addSubview(backgroundImage)
         backgroundImage.frame = view.frame
-
         
-  //      self.view.addSubview(textLbl)
-//        NSLayoutConstraint.activate([
-//            textLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-//            textLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            textLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            textLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
-//        ])
+        // UIView
+        self.backgroundImage.addSubview(viewForLabel)
+        NSLayoutConstraint.activate([
+            viewForLabel.topAnchor.constraint(equalTo: backgroundImage.topAnchor, constant: 456),
+            viewForLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 100),
+            viewForLabel.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -100),
+            viewForLabel.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -137)
+        ])
+
+        // TEXTLabel
+        self.viewForLabel.addSubview(textLbl)
+        NSLayoutConstraint.activate([
+            textLbl.heightAnchor.constraint(equalTo: viewForLabel.heightAnchor, constant: 50),
+            textLbl.leadingAnchor.constraint(equalTo: viewForLabel.leadingAnchor, constant: 20),
+            textLbl.trailingAnchor.constraint(equalTo: viewForLabel.trailingAnchor, constant: -20),
+            textLbl.bottomAnchor.constraint(equalTo: viewForLabel.bottomAnchor, constant: -100)
+        ])
         
   //      self.view.addSubview(activityIndicator)
 //        NSLayoutConstraint.activate([
