@@ -15,7 +15,7 @@ extension GeneralViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Новости", style: .default , handler:{ [unowned self] _ in
-            self.showViewController(viewController: UIViewController())
+            self.showViewController(viewController: NewsViewController())
         }))
         
         alert.addAction(UIAlertAction(title: "Заявки", style: .default , handler:{ [unowned self] _ in
