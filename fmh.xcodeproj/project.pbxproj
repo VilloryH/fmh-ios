@@ -12,6 +12,7 @@
 		0C0032492835718E00C65638 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0032482835718E00C65638 /* Constant.swift */; };
 		0C00324B283575C200C65638 /* SettingNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00324A283575C200C65638 /* SettingNewsViewController.swift */; };
 		0C00324D28357F6200C65638 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00324C28357F6200C65638 /* NewsCollectionViewCell.swift */; };
+		0CAEF47D283A366600B033EB /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAEF47C283A366600B033EB /* News.swift */; };
 		19064D84281FC86C006D8768 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19064D83281FC86C006D8768 /* LoginView.swift */; };
 		19064D88282049AE006D8768 /* LoginTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19064D87282049AE006D8768 /* LoginTextfield.swift */; };
 		19064D8A282066E3006D8768 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19064D89282066E3006D8768 /* PasswordTextField.swift */; };
@@ -71,6 +72,7 @@
 		0C0032482835718E00C65638 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0C00324A283575C200C65638 /* SettingNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNewsViewController.swift; sourceTree = "<group>"; };
 		0C00324C28357F6200C65638 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		0CAEF47C283A366600B033EB /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		19064D83281FC86C006D8768 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		19064D87282049AE006D8768 /* LoginTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextfield.swift; sourceTree = "<group>"; };
 		19064D89282066E3006D8768 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				191EAA74281BD26A007B1397 /* TokenData.swift */,
 				191EAA76281BD281007B1397 /* UserInfo.swift */,
 				191EAA81281C3B48007B1397 /* RefreshToken.swift */,
+				0CAEF47C283A366600B033EB /* News.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				19C7A51B280DECD0005000EB /* AppDelegate.swift in Sources */,
 				0C0032452835570600C65638 /* NewsViewController.swift in Sources */,
 				19BD1A62281D6AC300ED793A /* PListParser.swift in Sources */,
+				0CAEF47D283A366600B033EB /* News.swift in Sources */,
 				19243E232829BC8D00A43CA8 /* AuthorizationViewController.swift in Sources */,
 				19243DEC28293F7E00A43CA8 /* Service.swift in Sources */,
 				19F509E9283017300082FB98 /* GeneralViewController + UIElements.swift in Sources */,

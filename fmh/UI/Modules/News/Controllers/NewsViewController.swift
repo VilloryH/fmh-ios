@@ -8,7 +8,10 @@
 import UIKit
 
 class NewsViewController: UIViewController {
-
+    //ячейка для динамического определения размеров содержимого ячейки
+    private let sizingCell = NewsCollectionViewCell()
+    
+//MARK: - Создаем CollectionView для множественного выбора обязательно используем allowsMultipleSelection
     private lazy var newsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -18,7 +21,6 @@ class NewsViewController: UIViewController {
         view.alwaysBounceVertical = true
         view.delegate = self
         view.dataSource = self
-        
         return view
     }()
 
@@ -99,8 +101,8 @@ class NewsViewController: UIViewController {
         
         
         
-        // MARK: - Set cleare background for tableView
-      
+        
+        configureView()
     }
 
     //MARK: - Actions for buttonHeader
@@ -115,52 +117,78 @@ class NewsViewController: UIViewController {
         navigationController?.pushViewController(settingNewsVC, animated: true)
     }
     
+    // MARK: - Configure collectionView
+    
     func configureView() {
         newsCollectionView.backgroundColor = .clear
         newsCollectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
         self.view.addSubview(newsCollectionView)
+        newsCollectionView.translatesAutoresizingMaskIntoConstraints = false
         newsCollectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        newsCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        newsCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 55).isActive = true
         newsCollectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         newsCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
     }
-    
-        
+            
 }
-
-
-
 
 //MARK: - Extension for CollectionView
 
 extension NewsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return Constant.Test.testArray.count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCollectionViewCell
+        print("cellForItemAt")
+        cell.labelDescription.text = "dssafsdgsdgsd waergerg wefwefwe wefe weewr ew erger h ewrgq wq wqg gqg dgs g qgqwgqergr rg regerqg qrg qrg qrg erg reg erg erg erg erg "
         return cell
     }
-    
-    
+        
 }
 
 extension NewsViewController: UICollectionViewDelegate {
+    //MARK: - Переопределение анимации сворачивания ячейки
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
         collectionView.deselectItem(at: indexPath, animated: true)
         collectionView.performBatchUpdates(nil)
         return true
     }
-    
+    //MARK: - Переопределение анимации разворачивания ячейки
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         collectionView.performBatchUpdates(nil)
         return true
+    }
+}
+//MARK: - Расчет динамической ячейки
+extension NewsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let isSelected = collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false
+        sizingCell.frame = CGRect(
+            origin: .zero,
+            size: CGSize(
+                width: collectionView.bounds.width - 32,
+                height: 500))
+        sizingCell.isSelected = isSelected
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        let size = sizingCell.systemLayoutSizeFitting(CGSize(width: collectionView.bounds.width - 32, height: .greatestFiniteMagnitude), withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+        
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 16, bottom: 20, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return -1
     }
 }
   
