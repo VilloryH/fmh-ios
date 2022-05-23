@@ -120,7 +120,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         middleContainer.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         middleContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor).isActive = true
         middleContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor).priority = .defaultLow
-        middleContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        ///middleContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         mainContainer.addSubview(bottomContainer)
         bottomContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -160,7 +160,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         labelDescription.rightAnchor.constraint(equalTo: middleContainer.rightAnchor, constant: -16).isActive = true
         labelDescription.topAnchor.constraint(equalTo: middleContainer.topAnchor, constant: 8).isActive = true
         labelDescription.bottomAnchor.constraint(equalTo: middleContainer.bottomAnchor, constant: -8).isActive = true
-        labelDescription.centerYAnchor.constraint(equalTo: middleContainer.centerYAnchor).isActive = true
+        ///labelDescription.centerYAnchor.constraint(equalTo: middleContainer.centerYAnchor).isActive = true
         //labelDescription.heightAnchor.constraint(equalToConstant: labelDescription.heightToFitContent()).isActive = true
         print("dynamicHeight = \(labelDescription.heightToFitContent()) constraint")
         

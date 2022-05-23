@@ -170,6 +170,8 @@ extension NewsViewController: UICollectionViewDelegate {
 extension NewsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let isSelected = collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false
+        /// Тут надо модельку прокидывать как и в cellForItemAt один в один
+        sizingCell.labelDescription.text = "dssafsdgsdgsd waergerg wefwefwe wefe weewr ew erger h ewrgq wq wqg gqg dgs g qgqwgqergr rg regerqg qrg qrg qrg erg reg erg erg erg erg "
         sizingCell.frame = CGRect(
             origin: .zero,
             size: CGSize(
