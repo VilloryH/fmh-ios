@@ -29,7 +29,7 @@ class NewsViewController: UIViewController {
         
         // Image for Background
         
-        let imageViewBackground = UIImageView(image: UIImage(named: "BackGround.png"))
+        let imageViewBackground = UIImageView(image: UIImage(named: "BackGround"))
         imageViewBackground.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height))
         imageViewBackground.clipsToBounds = true
         imageViewBackground.contentMode = .scaleToFill
@@ -39,7 +39,7 @@ class NewsViewController: UIViewController {
         let viewHeader = UIView()
         viewHeader.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: 55))
         print(self.view.bounds)
-        viewHeader.backgroundColor = Constant.Collor.headerNews
+        viewHeader.backgroundColor = ConstantNews.Collor.headerNews
         self.view.addSubview(viewHeader)
         
         
@@ -47,7 +47,7 @@ class NewsViewController: UIViewController {
         let newsLabel = UILabel()
         newsLabel.frame = CGRect(x: 0, y: 0, width: 80, height: 22)
         newsLabel.textColor = .black
-        newsLabel.font = Constant.Font.titleHeader
+        newsLabel.font = ConstantNews.Font.titleHeader
         newsLabel.text = "Новости"
         let parentNewsLabel = viewHeader
         parentNewsLabel.addSubview(newsLabel)
@@ -66,7 +66,7 @@ class NewsViewController: UIViewController {
         buttonEdit.translatesAutoresizingMaskIntoConstraints = false
         buttonEdit.trailingAnchor.constraint(equalTo: parentButtonEdit.trailingAnchor, constant: -16).isActive = true
         buttonEdit.centerYAnchor.constraint(equalTo: viewHeader.centerYAnchor).isActive = true
-        buttonEdit.addTarget(self, action: #selector(buttonEditAction), for: .touchUpInside)
+        buttonEdit.addTarget(self, action: #selector(buttonDetailsAction), for: .touchUpInside)
         
         // add button FILTER
         let buttonFilter = UIButton()
@@ -99,9 +99,6 @@ class NewsViewController: UIViewController {
         buttonInfo.centerYAnchor.constraint(equalTo: viewHeader.centerYAnchor).isActive = true
         buttonInfo.addTarget(self, action: #selector(buttonInfoAction), for: .touchUpInside)
         
-        
-        
-        
         configureView()
     }
 
@@ -112,9 +109,12 @@ class NewsViewController: UIViewController {
         // add alert info
     }
     
-    @objc func buttonEditAction() {
-        let settingNewsVC = SettingNewsViewController()
-        navigationController?.pushViewController(settingNewsVC, animated: true)
+    @objc func buttonDetailsAction() {
+        let detailsNewsVC = DetailsNewsViewController()
+        //let generalVC = GeneralViewController()
+        navigationController?.pushViewController(detailsNewsVC, animated: true)
+        //generalVC.showViewController(viewController: detailsNewsVC)
+        
     }
     
     // MARK: - Configure collectionView
@@ -130,15 +130,15 @@ class NewsViewController: UIViewController {
         newsCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
     }
-            
 }
 
 //MARK: - Extension for CollectionView
 
 extension NewsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constant.Test.testArray.count
+        return ConstantNews.Test.testArray.count
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }

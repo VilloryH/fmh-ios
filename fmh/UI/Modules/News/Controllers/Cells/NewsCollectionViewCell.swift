@@ -17,14 +17,12 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(labelDescription.heightToFitContent())
         configureCell()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureCell()
-        print("required init?(coder: NSCoder) \(labelDescription.heightToFitContent())")
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -40,8 +38,8 @@ class NewsCollectionViewCell: UICollectionViewCell {
     private lazy var bottomContainer = UIView()
 
     private lazy var arrowUpDown: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: Constant.Images.chevronDown)?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = Constant.Collor.chevron
+        let imageView = UIImageView(image: UIImage(systemName: ConstantNews.Images.chevronDown)?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = ConstantNews.Collor.chevron
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -56,14 +54,14 @@ class NewsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Новостной заголовок"
         label.numberOfLines = 2
-        label.font = Constant.Font.titleNews
+        label.font = ConstantNews.Font.titleNews
         return label
     }()
     
     var labelDescription: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        let label = UILabel()
         label.backgroundColor = .white
-        label.font = Constant.Font.descriptionNews
+        label.font = ConstantNews.Font.descriptionNews
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         return label
@@ -71,8 +69,8 @@ class NewsCollectionViewCell: UICollectionViewCell {
   
     var labelCategory: UILabel = {
         let label = UILabel()
-        label.font = Constant.Font.holderTitle
-        label.textColor = Constant.Collor.holderText
+        label.font = ConstantNews.Font.holderTitle
+        label.textColor = ConstantNews.Collor.holderText
         label.alpha = 0
         label.text = "Праздник"
         return label
@@ -80,9 +78,9 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     var labelDate: UILabel = {
         let label = UILabel()
-        label.font = Constant.Font.holder
-        label.textColor = Constant.Collor.holderText
-        label.backgroundColor = Constant.Collor.fillRectangel
+        label.font = ConstantNews.Font.holder
+        label.textColor = ConstantNews.Collor.holderText
+        label.backgroundColor = ConstantNews.Collor.fillRectangel
         label.text = "22.12.2022"
         return label
     }()
@@ -90,13 +88,12 @@ class NewsCollectionViewCell: UICollectionViewCell {
     func configureCell() {
         mainContainer.clipsToBounds = true
         topContainer.backgroundColor = .white
-        middleContainer.backgroundColor = .blue
-        bottomContainer.backgroundColor = .yellow
+        middleContainer.backgroundColor = .white
+        bottomContainer.backgroundColor = .white
         
         makeConstraint()
         updateAppearance()
         borderForCell()
-        print("configureCell \(labelDescription.heightToFitContent())")
     }
     
     func makeConstraint() {
@@ -120,7 +117,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
         middleContainer.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         middleContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor).isActive = true
         middleContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor).priority = .defaultLow
-        ///middleContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         mainContainer.addSubview(bottomContainer)
         bottomContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -153,17 +149,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
         
         middleContainer.addSubview(labelDescription)
         labelDescription.translatesAutoresizingMaskIntoConstraints = false
-//        labelDescription.center = CGPoint(x: middleContainer.bounds.midX, y: middleContainer.bounds.midY)
-//        labelDescription.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin, UIView.AutoresizingMask.flexibleRightMargin, UIView.AutoresizingMask.flexibleTopMargin, UIView.AutoresizingMask.flexibleBottomMargin]
-        
         labelDescription.leftAnchor.constraint(equalTo: middleContainer.leftAnchor, constant: 16).isActive = true
         labelDescription.rightAnchor.constraint(equalTo: middleContainer.rightAnchor, constant: -16).isActive = true
         labelDescription.topAnchor.constraint(equalTo: middleContainer.topAnchor, constant: 8).isActive = true
         labelDescription.bottomAnchor.constraint(equalTo: middleContainer.bottomAnchor, constant: -8).isActive = true
-        ///labelDescription.centerYAnchor.constraint(equalTo: middleContainer.centerYAnchor).isActive = true
-        //labelDescription.heightAnchor.constraint(equalToConstant: labelDescription.heightToFitContent()).isActive = true
-        print("dynamicHeight = \(labelDescription.heightToFitContent()) constraint")
-        
         
         bottomContainer.addSubview(labelDate)
         labelDate.translatesAutoresizingMaskIntoConstraints = false
@@ -191,7 +180,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
     func updateAppearance() {
         collapsedConstraint.isActive = !isSelected
         expandedConstraint.isActive = isSelected
-        print("updateAppearence \(labelDescription.heightToFitContent())")
         
         UIView.animate(withDuration: 0.3) {
             self.labelCategory.alpha = self.isSelected ? 1 : 0
@@ -201,11 +189,11 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
     
     func borderForCell () {
-        self.layer.borderColor = Constant.Collor.borderCell.cgColor
+        self.layer.borderColor = ConstantNews.Collor.borderCell.cgColor
         self.layer.borderWidth = 1
     }
 }
-//MARK: - попытки получить высоту UIlabel
+//MARK: - попытки получить высоту UIlabel - не используется УДАЛИТЬ
 extension UILabel {
 
     func heightToFitContent() -> CGFloat {
@@ -220,18 +208,3 @@ extension UILabel {
     }
 }
 
-extension String {
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-    
-        return ceil(boundingBox.height)
-    }
-
-    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
-        return ceil(boundingBox.width)
-    }
-}

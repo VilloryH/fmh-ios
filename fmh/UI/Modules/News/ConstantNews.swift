@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Constant {
+struct ConstantNews {
     
     struct Collor {
         static let text = UIColor(red: 0, green: 0, blue: 0, alpha: 0.87)
@@ -21,9 +21,9 @@ struct Constant {
     }
     
     struct Font {
-        static let titleHeader = UIFont(name: "Helvetica Neue", size: 19)
-        static let titleNews = UIFont(name: "Helvetica Neue", size: 16)
-        static let descriptionNews = UIFont(name: "Helvetica Neue", size: 14)
+        static let titleHeader = UIFont(name: "Helvetica Neue", size: 20)
+        static let titleNews = UIFont(name: "Helvetica Neue", size: 17)
+        static let descriptionNews = UIFont(name: "Helvetica Neue", size: 15)
         static let holder = UIFont(name: "Helvetica Neue", size: 13)
         static let holderTitle = UIFont(name: "Helvetica Neue", size: 12)
     }
