@@ -126,12 +126,6 @@ extension MainScreenViewController: MainScreenViewControllerDelegate, UITableVie
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerType = HeaderView.HeaderType(rawValue: section) else { return nil }
         let header = HeaderView(type: headerType)
-<<<<<<< HEAD
-        header.pressAnyButton = { (type, tag) in
-            print(type)
-            print(tag)
-        }
-=======
         header.pressUpButton = { (type, tag) in
             print(type)
             print(tag)

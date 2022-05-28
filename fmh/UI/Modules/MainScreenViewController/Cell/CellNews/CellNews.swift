@@ -33,10 +33,6 @@ class CellNews: UITableViewCell {
         
         self.selectionStyle = .none
         configureUI()
-<<<<<<< HEAD
-        
-=======
->>>>>>> mainScreen
     }
     
     required init?(coder: NSCoder) {
@@ -44,13 +40,10 @@ class CellNews: UITableViewCell {
     }
     
     private func configureUI () {
-<<<<<<< HEAD
-=======
         let wallsColor = CGColor(red: 0.245, green: 0.245, blue: 0.245, alpha: 0.93)
         self.layer.position.y = CGPoint.zero.x
         self.layer.borderColor = wallsColor
         self.layer.borderWidth = 15
->>>>>>> mainScreen
         self.backgroundColor = UIColor(white: 0, alpha: 0)
         
         self.addSubview(resultView)

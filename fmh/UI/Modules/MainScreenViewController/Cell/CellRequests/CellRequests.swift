@@ -45,42 +45,6 @@ class CellRequests: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-<<<<<<< HEAD
-    func configureCell() {
-        let separateLine = UIColor.red
-    
-        self.backgroundColor = UIColor(white: 0, alpha: 0)
-        
-       
-        cellView.layer.cornerRadius = 10
-        cellView.layer.borderWidth = 2
-        cellView.layer.borderColor =  taskColor
-        
-        self.addSubview(resultView)
-        resultView.backgroundColor = .white
-        
-        
-        func separateLines(frame: CGRect, colour: UIColor) -> UIView {
-            let viewSeparatorLine = UIView(frame: frame)   // разделитель ячеек
-            viewSeparatorLine.backgroundColor = colour
-            return viewSeparatorLine
-        }
-        self.contentView.addSubview(separateLines(frame: CGRect(x: 50, y: 55, width: self.contentView.bounds.width - 50, height: 1), colour: separateLine))
-        self.contentView.addSubview(separateLines(frame: CGRect(x: 50, y: 90, width: self.contentView.frame.size.width - 50, height: 1), colour: separateLine))
-        self.contentView.addSubview(separateLines(frame: CGRect(x: 50, y: 125, width: self.contentView.frame.size.width - 50, height: 1), colour: separateLine))
-        self.contentView.addSubview(separateLines(frame: CGRect(x: 50, y: 160, width: self.contentView.frame.size.width - 50, height: 1), colour: separateLine))
-        
-        
-        //let sepcell = UIView()
-        
-        self.cellView.addSubview(separateLines(frame: CGRect(x: 0, y: 0, width: self.cellView.bounds.width, height: self.cellView.bounds.height), colour: separateLine))
-        
-        self.resultView.addSubview(cellView)
-        cellView.layer.cornerRadius = 10
-        cellView.layer.borderWidth = 2
-        cellView.layer.borderColor =  CGColor(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        cellView.backgroundColor = .white
-=======
     private func configureCell() {
         self.backgroundColor = UIColor(white: 0, alpha: 0)
         
@@ -141,10 +105,9 @@ class CellRequests: UITableViewCell {
         self.cellView.addSubview(self.openTask)
         self.openTask.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-<<<<<<< HEAD
-            openTask.topAnchor.constraint(equalTo: planeDateStackView.bottomAnchor, constant: 5),
-            openTask.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: self.bounds.width / 2 - 20),
-            openTask.widthAnchor.constraint(equalToConstant: 15),
+            self.openTask.topAnchor.constraint(equalTo: planeDateStackView.bottomAnchor, constant: 5),
+            self.openTask.centerXAnchor.constraint(equalTo: self.cellView.centerXAnchor),
+            self.openTask.widthAnchor.constraint(equalToConstant: 15),
         ])
             
 =======
