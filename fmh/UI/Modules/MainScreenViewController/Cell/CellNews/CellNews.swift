@@ -33,7 +33,10 @@ class CellNews: UITableViewCell {
         
         self.selectionStyle = .none
         configureUI()
+<<<<<<< HEAD
         
+=======
+>>>>>>> mainScreen
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +44,13 @@ class CellNews: UITableViewCell {
     }
     
     private func configureUI () {
+<<<<<<< HEAD
+=======
+        let wallsColor = CGColor(red: 0.245, green: 0.245, blue: 0.245, alpha: 0.93)
+        self.layer.position.y = CGPoint.zero.x
+        self.layer.borderColor = wallsColor
+        self.layer.borderWidth = 15
+>>>>>>> mainScreen
         self.backgroundColor = UIColor(white: 0, alpha: 0)
         
         self.addSubview(resultView)
@@ -52,6 +62,7 @@ class CellNews: UITableViewCell {
             self.resultView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.resultView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.resultView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
+<<<<<<< HEAD
         ])
         
         self.resultView.addSubview(self.newsIcon)
@@ -82,6 +93,43 @@ class CellNews: UITableViewCell {
             self.newsTextLabel.leadingAnchor.constraint(equalTo: self.resultView.leadingAnchor, constant: 20),
             self.newsTextLabel.trailingAnchor.constraint(equalTo: self.resultView.trailingAnchor, constant: -20),
             self.newsTextLabel.bottomAnchor.constraint(equalTo: self.newsDate.topAnchor, constant: -5)
+=======
+        ])
+        
+        self.resultView.addSubview(self.newsIcon)
+        self.newsIcon.image = UIImage(named: "Announcement")
+        
+        self.resultView.addSubview(self.newsLabel)
+        self.newsLabel.text = "Text"
+        self.newsLabel.font = UIFont(name: "Avenir Next", size: 20)
+        
+        self.resultView.addSubview(self.newsDate)
+        self.newsDate.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 0.9325993337)
+        self.newsDate.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.newsDate.trailingAnchor.constraint(equalTo: self.resultView.trailingAnchor, constant: 0),
+            self.newsDate.bottomAnchor.constraint(equalTo: self.resultView.bottomAnchor, constant: 0),
+            self.newsDate.widthAnchor.constraint(equalToConstant: 125),
+            self.newsDate.heightAnchor.constraint(equalToConstant: 17)
+        ])
+        
+        self.resultView.addSubview(self.newsTextLabel)
+        self.newsTextLabel.numberOfLines = 0
+        self.newsTextLabel.sizeToFit()
+        self.newsTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.newsTextLabel.topAnchor.constraint(equalTo: self.newsLabel.bottomAnchor, constant: 5),
+            self.newsTextLabel.leadingAnchor.constraint(equalTo: self.resultView.leadingAnchor, constant: 20),
+            self.newsTextLabel.trailingAnchor.constraint(equalTo: self.resultView.trailingAnchor, constant: -20),
+            self.newsTextLabel.bottomAnchor.constraint(equalTo: self.newsDate.topAnchor, constant: -5)
+        ])
+        
+        self.resultView.addSubview(self.openNewsIcon)
+        self.openNewsIcon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.openNewsIcon.topAnchor.constraint(equalTo: self.resultView.topAnchor, constant: 25),
+            self.openNewsIcon.trailingAnchor.constraint(equalTo: self.resultView.trailingAnchor, constant: -15)
+>>>>>>> mainScreen
         ])
     }
     
@@ -92,8 +140,12 @@ class CellNews: UITableViewCell {
         self.newsIcon.frame = CGRect(x: x, y: y, width: 21, height: 20)
         x += 36.0; y += 1
         self.newsLabel.frame = CGRect(x: x, y: y, width: 240, height: 19)
+<<<<<<< HEAD
         x += 245; y += 5.59
         self.openNewsIcon.frame = CGRect(x: x, y: y, width: 12, height: 7.41)
+=======
+        self.openNewsIcon.frame = CGRect(x: 0, y: 0, width: 12, height: 7.41)
+>>>>>>> mainScreen
     }
     
     private func setFont(font: UIFont?) -> UIFont {
